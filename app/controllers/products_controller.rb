@@ -4,8 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   def index
     @products = Product.all
+    @categories = Product.distinct.pluck(:category)
 
-    render json: @products
+
+
+    render json: { products: @products, categories: @categories }
   end
 
   # GET /products/1
