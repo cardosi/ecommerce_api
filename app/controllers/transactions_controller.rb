@@ -1,5 +1,6 @@
 class TransactionsController < ApplicationController
   before_action :set_transaction, only: [:show, :update, :destroy]
+  before_action :authenticate_token
 
   # GET /transactions
   def index
