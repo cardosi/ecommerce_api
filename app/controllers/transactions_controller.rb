@@ -11,7 +11,9 @@ class TransactionsController < ApplicationController
 
   # GET /transactions/1
   def show
-    render json: @transaction
+    @product = Product.find(@transaction.product_id)
+    @user = User.find(@transaction.user_id)
+    render json: { transaction: @transaction, product: @product, user: @user}
   end
 
   # POST /transactions
